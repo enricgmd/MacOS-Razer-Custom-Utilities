@@ -2,6 +2,8 @@
 
 Native macOS Intel utility for a Razer BlackWidow V4 X keyboard and a Razer DeathAdder V2 mouse.
 
+This project exists to unlock the special functions, macro keys, and extra mouse buttons that Razer hardware exposes but macOS on Intel does not fully support out of the box, giving supported Razer devices their full potential without relying on Synapse.
+
 The app was built around direct HID inspection and local event taps so the supported devices can expose useful custom controls on macOS:
 
 - BlackWidow V4 X macro keys M1-M6 with assignable actions.
