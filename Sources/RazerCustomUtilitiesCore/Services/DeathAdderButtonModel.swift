@@ -89,10 +89,11 @@ final class DeathAdderButtonModel: ObservableObject {
             return
         }
 
-        if usagePage == 0x07,
-           let hotspotID = Self.hotspotIDsByKeyboardUsage[usage] {
+        if usagePage == 0x07 {
             fKeySuppressor?.noteDeathAdderKeyboardUsage(usage, value: integerValue)
-            setHotspot(hotspotID, active: integerValue == 1)
+            if let hotspotID = Self.hotspotIDsByKeyboardUsage[usage] {
+                setHotspot(hotspotID, active: integerValue == 1)
+            }
             return
         }
 

@@ -4,9 +4,19 @@ import IOKit.hid
 final class DeathAdderRawEventModel: ObservableObject {
     private static let vendorID = 0x1532
     private static let productID = 0x0084
-    private static let topKeyNamesByKeyboardUsage: [UInt32: String] = [
+    private static let keyNamesByKeyboardUsage: [UInt32: String] = [
+        0x68: "F13",
+        0x69: "F14",
         0x6A: "F15",
-        0x6B: "F16"
+        0x6B: "F16",
+        0x6C: "F17",
+        0x6D: "F18",
+        0x6E: "F19",
+        0x6F: "F20",
+        0x70: "F21",
+        0x71: "F22",
+        0x72: "F23",
+        0x73: "F24"
     ]
     private let eventLimit = 90
 
@@ -105,7 +115,6 @@ final class DeathAdderRawEventModel: ObservableObject {
         }
 
         if usagePage == 0x07,
-           Self.topKeyNamesByKeyboardUsage[usage] != nil,
            integerValue == 0 || integerValue == 1 {
             handleKeyboardUsage(usage: usage, value: integerValue)
             return
@@ -128,10 +137,7 @@ final class DeathAdderRawEventModel: ObservableObject {
     }
 
     private func handleKeyboardUsage(usage: UInt32, value: Int) {
-        guard let keyName = Self.topKeyNamesByKeyboardUsage[usage] else {
-            return
-        }
-
+        let keyName = Self.keyNamesByKeyboardUsage[usage] ?? "keyboard-usage-\(hex(usage))"
         let action = value == 1 ? "down" : "up"
         append("\(action) key=\(keyName) usage=\(hex(usage))")
     }
@@ -167,10 +173,14 @@ final class DeathAdderRawEventModel: ObservableObject {
 
     private func isButtonTransitionNoise(usagePage: UInt32, usage: UInt32, value: Int) -> Bool {
         if usagePage == 0x07 {
-            return Self.topKeyNamesByKeyboardUsage[usage] == nil || !(value == 0 || value == 1)
+            return isInvalidKeyboardUsage(usage) || !(value == 0 || value == 1)
         }
 
         return false
+    }
+
+    private func isInvalidKeyboardUsage(_ usage: UInt32) -> Bool {
+        usage == UInt32.max || usage <= 0x03 || usage > 0xE7
     }
 
     private func buttonName(for usage: UInt32) -> String? {

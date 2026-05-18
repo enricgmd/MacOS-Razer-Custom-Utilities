@@ -8,8 +8,14 @@ final class DeathAdderFKeySuppressor {
     }
 
     private static let keyCodesByKeyboardUsage: [UInt32: UInt16] = [
-        0x6A: 113,
-        0x6B: 106
+        0x68: 0x69,
+        0x69: 0x6B,
+        0x6A: 0x71,
+        0x6B: 0x6A,
+        0x6C: 0x40,
+        0x6D: 0x4F,
+        0x6E: 0x50,
+        0x6F: 0x5A
     ]
 
     private let suppressionWindow: CFTimeInterval = 0.25

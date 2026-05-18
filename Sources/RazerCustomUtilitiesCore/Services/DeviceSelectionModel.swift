@@ -5,6 +5,8 @@ final class DeviceSelectionModel: ObservableObject {
     @Published var keyboardConnected = false
     @Published var mouseConnected = false
 
+    var onMouseConnected: (() -> Void)?
+
     private let deathAdderMonitor = DeathAdderConnectionMonitor()
     private weak var keyboardModel: MacroAppModel?
     private var pollTimer: Timer?
@@ -45,8 +47,13 @@ final class DeviceSelectionModel: ObservableObject {
     }
 
     private func refreshConnectionState() {
+        let wasMouseConnected = mouseConnected
         keyboardConnected = keyboardModel?.deviceConnected ?? false
         mouseConnected = deathAdderMonitor.isConnected()
+
+        if mouseConnected && !wasMouseConnected {
+            onMouseConnected?()
+        }
 
         let available = availableDevices
         guard !available.isEmpty else {

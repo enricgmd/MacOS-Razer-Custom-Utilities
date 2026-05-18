@@ -10,6 +10,7 @@ public final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate,
         emptyTitle: "Assign action"
     )
     private let deathAdderFKeySuppressor = DeathAdderFKeySuppressor()
+    private let deathAdderTopButtonConfigurator = DeathAdderTopButtonConfigurator()
     private lazy var deathAdderButtonModel = DeathAdderButtonModel(
         assignmentStore: deathAdderAssignmentStore,
         fKeySuppressor: deathAdderFKeySuppressor
@@ -71,6 +72,9 @@ public final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate,
         configureStatusItem()
 
         keyboardModel.start()
+        deviceModel.onMouseConnected = { [weak self] in
+            self?.deathAdderTopButtonConfigurator.ensureDefaultAssignmentsInBackground(reason: "mouse-connected")
+        }
         deviceModel.start(keyboardModel: keyboardModel)
         deathAdderFKeySuppressor.start()
         deathAdderButtonModel.start()
