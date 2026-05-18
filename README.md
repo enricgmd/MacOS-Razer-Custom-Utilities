@@ -14,7 +14,7 @@ The app was built around direct HID inspection and local event taps so the suppo
 
 ## Supported Hardware
 
-This project currently targets:
+This project was done as a personal utility for my Razer devices and currently only supports and has been tested on these models:
 
 - Razer BlackWidow V4 X: `vendor-id=0x1532`, `product-id=0x0293`
 - Razer DeathAdder V2: `vendor-id=0x1532`, `product-id=0x0084`
@@ -28,7 +28,13 @@ Other Razer devices may expose different HID interfaces, reports, usages, or fir
 - Input Monitoring and Accessibility permissions for the app.
 - For public distribution outside your own Mac: an Apple Developer ID certificate and notarization.
 
-## Build
+## Install
+
+Simply download the .dmg file in the releases and copy the app to your applications folder.
+
+IMPORTANT USAGE NOTE: The app doesn't natively recognise the mouse top special buttons (the ones located behind the scroll wheel). You need to manually assign those buttons to F15 and F16 using the Synapse software in a compatible Windows or Apple Silicon machine.
+
+## Custom Build
 
 ```bash
 ./script/build_app.sh
@@ -50,31 +56,6 @@ Useful options:
 
 If a local Apple Development signing identity is available, the script signs the helper and app bundle. That is enough for local development, but not for public Gatekeeper distribution.
 
-## Package a DMG
-
-```bash
-./script/package_dmg.sh
-```
-
-This builds a release app bundle and creates:
-
-```text
-dist/Razer Custom Utilities-<version>.dmg
-```
-
-For a GitHub Release intended for other users, sign the app with Developer ID and notarize the DMG before publishing.
-
-## DeathAdder Debug Helper
-
-The helper script focuses only on the DeathAdder V2:
-
-```bash
-./script/deathadder.sh
-./script/deathadder.sh --special
-./script/deathadder.sh --list
-```
-
-`--raw` is the default mode and shows all visible HID events for the mouse. `--special` prints only the target buttons used by the app.
 
 ## Repository Layout
 
@@ -86,16 +67,3 @@ script/build_app.sh                 Build/sign/package app bundle
 script/package_dmg.sh               Build release DMG
 script/deathadder.sh                DeathAdder V2 debug helper
 ```
-
-## Distribution Notes
-
-The `.app` can be copied to another Mac, but macOS will require users to grant Accessibility/Input Monitoring permissions again. Public release builds should be:
-
-1. Signed with a Developer ID Application certificate.
-2. Packaged into a DMG.
-3. Notarized with Apple.
-4. Uploaded to GitHub Releases together with the source code.
-
-Without Developer ID notarization, other Macs may block the app or show Gatekeeper warnings even if the code is correct.
-
-See [docs/RELEASING.md](docs/RELEASING.md) for the GitHub release and notarization workflow.
