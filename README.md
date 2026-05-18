@@ -71,3 +71,7 @@ script/build_app.sh                 Build/sign/package app bundle
 script/package_dmg.sh               Build release DMG
 script/deathadder.sh                DeathAdder V2 debug helper
 ```
+
+## Acknowledgements
+
+Thanks to the [OpenRazer](https://github.com/openrazer/openrazer) project for documenting and implementing so much of the Razer HID protocol surface on Linux. Its work was an important reference while understanding how these devices communicate.
