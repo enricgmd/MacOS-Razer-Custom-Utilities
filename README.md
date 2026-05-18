@@ -32,7 +32,9 @@ Other Razer devices may expose different HID interfaces, reports, usages, or fir
 
 Simply download the .dmg file and copy the app to your applications folder.
 
-IMPORTANT USAGE NOTE: The app doesn't natively recognise the mouse top special buttons (the ones located behind the scroll wheel). You need to manually assign those buttons to F15 and F16 using the Synapse software in a compatible Windows or Apple Silicon machine.
+~~IMPORTANT USAGE NOTE: The app doesn't natively recognise the mouse top special buttons (the ones located behind the scroll wheel). You need to manually assign those buttons to F15 and F16 using the Synapse software in a compatible Windows or Apple Silicon machine.~~
+
+No longer necessary since version 2.5: the app automatically assigns the DeathAdder V2 top buttons to F15/F16 when it starts or when the mouse is connected.
 
 ## Custom Build
 
