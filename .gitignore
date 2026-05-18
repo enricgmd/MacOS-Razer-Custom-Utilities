@@ -1,0 +1,14 @@
+.DS_Store
+
+/.build/
+/.swiftpm/
+/DerivedData/
+/dist/
+
+*.dmg
+*.xcuserstate
+xcuserdata/
+
+# Local capture/reference files used while reverse engineering devices.
+/deathadder.pcapng
+/graphics/
