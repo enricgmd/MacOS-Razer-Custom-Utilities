@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Razer Hardware Utilities for macOS Intel</title>
+    <title>Razer Hardware Utilities for macOS</title>
     <meta
       name="description"
       content="Native macOS Intel utility for Razer BlackWidow V4 X macro keys and Razer DeathAdder V2 extra buttons, built with direct HID support and no Synapse setup requirement."
     />
     <meta name="robots" content="index,follow" />
-    <meta property="og:title" content="Razer Hardware Utilities for macOS Intel" />
+    <meta property="og:title" content="Razer Hardware Utilities for macOS" />
     <meta
       property="og:description"
       content="Unlock Razer BlackWidow V4 X macro keys and DeathAdder V2 extra buttons on macOS Intel."
@@ -145,6 +145,13 @@
         margin-top: 30px;
       }
 
+      .hero-disclaimer {
+        max-width: 700px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
       .button {
         display: inline-flex;
         align-items: center;
@@ -250,13 +257,6 @@
         gap: 14px;
       }
 
-      .disclaimer {
-        max-width: 860px;
-        margin: 22px 0 0;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
       .hardware-item {
         padding: 20px;
         border-radius: 8px;
@@ -344,7 +344,7 @@
         <div class="hero-grid">
           <div>
             <div class="eyebrow">Native utility for macOS Intel</div>
-            <h1>Razer Hardware Utilities for macOS Intel</h1>
+            <h1>Razer Hardware Utilities for macOS</h1>
             <p class="hero-copy">
               Unlock macro keys and special buttons of your Razer devices on Intel-based macOS platforms.
             </p>
@@ -359,6 +359,10 @@
                 View source on GitHub
               </a>
             </div>
+            <p class="hero-disclaimer">
+              * This is a personal hobby project and hardware experiment built for my own devices. It has not
+              been tested with other Razer models, but the code can be adapted for devices with similar HID behavior.
+            </p>
           </div>
 
           <div class="device-stage" aria-hidden="true">
@@ -418,10 +422,6 @@
               <code>product-id=0x0084</code>
             </div>
           </div>
-          <p class="disclaimer">
-            * This is a personal hobby project and hardware experiment built for my own devices. It has not
-            been tested with other Razer models, but the code can be adapted for devices with similar HID behavior.
-          </p>
         </div>
       </section>
     </main>
