@@ -19,7 +19,7 @@ This project was done as a personal utility and experimentation for my Razer dev
 - Razer BlackWidow V4 X: `vendor-id=0x1532`, `product-id=0x0293`
 - Razer DeathAdder V2: `vendor-id=0x1532`, `product-id=0x0084`
 
-I'm quite sure other similar Razer devices may work or the code can be easily adapted to work on your devices. Treat this project as a working base for adaptation rather than a universal Razer driver.
+I'm quite sure other similar Razer devices may work or the code can be easily adapted to work on them. Treat this project as a working base for adaptation rather than a universal Razer driver.
 
 ## Requirements
 
