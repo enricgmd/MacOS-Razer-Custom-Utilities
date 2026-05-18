@@ -1,6 +1,6 @@
-# Razer Custom Utilities
+# Razer Custom Utilities for MacOS Intel
 
-Native macOS utility for a Razer BlackWidow V4 X keyboard and a Razer DeathAdder V2 mouse.
+Native macOS Intel utility for a Razer BlackWidow V4 X keyboard and a Razer DeathAdder V2 mouse.
 
 The app was built around direct HID inspection and local event taps so the supported devices can expose useful custom controls on macOS:
 
@@ -30,7 +30,7 @@ Other Razer devices may expose different HID interfaces, reports, usages, or fir
 
 ## Install
 
-Simply download the .dmg file in the releases and copy the app to your applications folder.
+Simply download the .dmg file and copy the app to your applications folder.
 
 IMPORTANT USAGE NOTE: The app doesn't natively recognise the mouse top special buttons (the ones located behind the scroll wheel). You need to manually assign those buttons to F15 and F16 using the Synapse software in a compatible Windows or Apple Silicon machine.
 
